@@ -2,7 +2,7 @@
 
 This project uses the [Marvel API](https://developer.marvel.com/)
 
-    --- Disclaimer: All images and character content are property of [Marvel](https://www.marvel.com/)/[Disney](https://www.disney.com/).
+Disclaimer: All images and character content are property of [Marvel](https://www.marvel.com/)/[Disney](https://www.disney.com/).
 
 This project is for learning and practice purposes only.
 
