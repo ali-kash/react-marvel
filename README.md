@@ -1,6 +1,8 @@
-# React - Webpack || Starter files
+# React WebApp - Marvel API
 
-A React and Webpack setup for quick referencing or starting from scratch.
+This project uses the [Marvel API](https://developer.marvel.com/)
+Disclaimer: All images and character content are property of Marvel/Disney.
+This project is for learning and practice purposes only.
 
 1. Clone the repo
 2. Run `npm i` to install dependencies
