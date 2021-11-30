@@ -19,3 +19,38 @@ body {
 	width: 100vw;
 	height: 100vh;
 }
+
+// Navigation
+header {
+	background-color: #03071e !important;
+}
+
+.banner {
+	display: flex;
+	justify-content: center;
+	margin: 2rem 0;
+	img {
+		width: 100%;
+		max-width: 400px;
+	}
+}
+
+// Search Form
+.searchForm {
+	border-radius: 5px;
+	padding: 15px;
+	z-index: 1;
+	background-color: #e9e9eb;
+
+	&__control {
+		display: flex;
+		flex-direction: row;
+	}
+
+	&__input {
+		flex: 1;
+	}
+	&__icon {
+		flex: 0;
+	}
+}

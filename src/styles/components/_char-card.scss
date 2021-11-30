@@ -1,0 +1,13 @@
+.image__gridItem {
+	display: inline-block;
+	margin-bottom: 8px;
+	width: calc(50% - 4px);
+
+	@media screen and (min-width: 50em) {
+		width: calc(25% - 6px);
+	}
+
+	img {
+		width: 100%;
+	}
+}

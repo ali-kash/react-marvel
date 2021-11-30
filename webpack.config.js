@@ -3,6 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 let mode = 'development'
 let target = 'web'
@@ -12,6 +13,7 @@ const plugins = [
 	new HtmlWebpackPlugin({
 		template: './src/index.html',
 	}),
+	new Dotenv(),
 ]
 
 if (process.env.NODE_ENV === 'production') {
