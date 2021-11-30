@@ -44,7 +44,7 @@ function App() {
 			<Router>
 				<div className='app'>
 					<Navigation />
-					<main>
+					<main className='container'>
 						<Switch>
 							<Route path='/' exact component={Home} />
 							<Route path='/results' exact component={Results} />
