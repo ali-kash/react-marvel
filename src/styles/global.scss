@@ -1,4 +1,8 @@
 @import './variables';
+@import './components/navigatioin';
+@import './components/char-card';
+@import './components/char-list';
+@import './components/single-char';
 
 * {
 	margin: 0;
@@ -6,8 +10,12 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: $bg;
+	color: $text;
+}
+
 .app {
 	width: 100vw;
 	height: 100vh;
-	background-color: $bg;
 }
