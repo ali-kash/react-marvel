@@ -20,7 +20,7 @@ const Results = () => {
 			}
 		}
 
-		console.log(search.charData)
+		// console.log(search.charData)
 	}, [search])
 
 	return (

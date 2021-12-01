@@ -1,14 +1,11 @@
 .image__gridItem {
 	display: inline-block;
 	margin-bottom: 8px;
-	width: calc(50% - 4px);
 
-	@include media('<=phone') {
-		width: 100%;
+	@include media('<=tablet') {
 	}
 
-	@media screen and (min-width: 50em) {
-		width: calc(25% - 6px);
+	@include media('<=phone') {
 	}
 
 	img {

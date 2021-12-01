@@ -1,5 +1,13 @@
 .image__grid {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 10px;
+
+	@include media('<=tablet') {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include media('<=phone') {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }

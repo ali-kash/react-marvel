@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { SearchContext } from '../context/search'
 
-import { Typography, Link, Paper, ImageListItem, Card } from '@mui/material'
+import {
+	Typography,
+	Link,
+	Paper,
+	ImageListItem,
+	Card,
+	Grid,
+} from '@mui/material'
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles(() => ({
-	card: {
+	paper: {
 		borderRadius: '1rem',
 		boxShadow: 'none',
 		position: 'relative',
@@ -12,6 +21,7 @@ const useStyles = makeStyles(() => ({
 		minHeight: 360,
 		backgroundSize: 'cover',
 		overflow: 'hidden',
+
 		'&:after': {
 			content: '""',
 			display: 'block',
@@ -19,8 +29,16 @@ const useStyles = makeStyles(() => ({
 			width: '100%',
 			height: '100%',
 			bottom: '-20%',
-			zIndex: 1,
 			background: 'linear-gradient(to top, #000, rgba(0,0,0,0))',
+		},
+		'&:hover': {
+			transition: '0.8s',
+			cursor: 'pointer',
+			padding: 0,
+			'&:after': {
+				background: 'rgba(0,0,0,0.7)',
+				bottom: 0,
+			},
 		},
 	},
 	content: {
@@ -34,8 +52,27 @@ const useStyles = makeStyles(() => ({
 	},
 }))
 
+const apiPublicKey = process.env.MARVEL_API_PUBLIC_KEY
+const apiHash = process.env.MARVEL_API_HASH
+
 const CharacterCard = (props) => {
 	const styles = useStyles()
+
+	const search = useContext(SearchContext)
+	const history = useHistory()
+	const onClickHandler = () => {
+		fetch(
+			`https://gateway.marvel.com:443/v1/public/characters/${props.char.id}?ts=1&apikey=${apiPublicKey}&hash=${apiHash}`
+		)
+			.then((response) => response.json())
+			.then((data) => {
+				search.setSingle(data)
+				localStorage.setItem('singleData', JSON.stringify(data))
+				history.push('/single-view')
+			})
+
+		console.log(`${props.char.id}`)
+	}
 
 	const name = props.char.name
 	const imageUrl = `${props.char.thumbnail.path}.${props.char.thumbnail.extension}`
@@ -43,9 +80,9 @@ const CharacterCard = (props) => {
 
 	return (
 		<>
-			<ImageListItem className='image__gridItem'>
-				<Card
-					className={styles.card}
+			<ImageListItem>
+				<Paper
+					className={`${styles.paper} image__gridItem`}
 					style={{
 						backgroundImage: `url(${imageUrl})`,
 					}}
@@ -61,7 +98,15 @@ const CharacterCard = (props) => {
 					>
 						{name}
 					</Typography>
-				</Card>
+					<Link
+						component='button'
+						variant='body1'
+						style={{ marginBottom: 0, zIndex: 1 }}
+						onClick={onClickHandler}
+					>
+						Learn More
+					</Link>
+				</Paper>
 			</ImageListItem>
 
 			{/* <ImageListItem className='image__gridItem'>
