@@ -24,13 +24,13 @@ const SingleView = () => {
 		}
 
 		// console.log(search.singleData.data.results)
-	}, [search])
+	}, [])
 
 	return (
 		<div>
-			{(dataExists && (
-				<SingleCharacter info={search.singleData.data.results} />
-			)) || <Typography>No data exists for this Anime</Typography>}
+			{(dataExists && <SingleCharacter info={search.singleData} />) || (
+				<Typography>No data exists for this Anime</Typography>
+			)}
 		</div>
 	)
 }

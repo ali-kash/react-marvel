@@ -2,14 +2,7 @@ import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { SearchContext } from '../context/search'
 
-import {
-	Typography,
-	Link,
-	Paper,
-	ImageListItem,
-	Card,
-	Grid,
-} from '@mui/material'
+import { Typography, Link, Paper, ImageListItem } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles(() => ({
@@ -67,7 +60,7 @@ const CharacterCard = (props) => {
 			.then((response) => response.json())
 			.then((data) => {
 				search.setSingle(data)
-				localStorage.setItem('singleData', JSON.stringify(data))
+				localStorage.setItem('singleData', JSON.stringify(data.data.results[0]))
 				history.push('/single-view')
 			})
 
@@ -76,7 +69,6 @@ const CharacterCard = (props) => {
 
 	const name = props.char.name
 	const imageUrl = `${props.char.thumbnail.path}.${props.char.thumbnail.extension}`
-	const description = props.char.description
 
 	return (
 		<>
@@ -108,15 +100,6 @@ const CharacterCard = (props) => {
 					</Link>
 				</Paper>
 			</ImageListItem>
-
-			{/* <ImageListItem className='image__gridItem'>
-				<Paper>
-					<img src={imageUrl} alt={name} />
-					<Typography variant='h5' component='h2'>
-						{name}
-					</Typography>
-				</Paper>
-			</ImageListItem> */}
 		</>
 	)
 }

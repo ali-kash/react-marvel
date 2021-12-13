@@ -1,4 +1,6 @@
 import * as React from 'react'
+import SearchCharacter from './Search'
+
 import { styled, alpha } from '@mui/material/styles'
 import {
 	AppBar,
@@ -9,14 +11,7 @@ import {
 	InputBase,
 } from '@mui/material'
 
-// import AppBar from '@mui/material/AppBar'
-// import Box from '@mui/material/Box'
-// import Toolbar from '@mui/material/Toolbar'
-// import IconButton from '@mui/material/IconButton'
-// import Typography from '@mui/material/Typography'
-// import InputBase from '@mui/material/InputBase'
 import MenuIcon from '@mui/icons-material/Menu'
-import SearchIcon from '@mui/icons-material/Search'
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -82,15 +77,9 @@ export default function SearchAppBar() {
 					>
 						MUI
 					</Typography>
-					<Search>
-						<SearchIconWrapper>
-							<SearchIcon />
-						</SearchIconWrapper>
-						<StyledInputBase
-							placeholder='Search…'
-							inputProps={{ 'aria-label': 'search' }}
-						/>
-					</Search>
+					<div className='search-header'>
+						<SearchCharacter />
+					</div>
 				</Toolbar>
 			</AppBar>
 		</Box>

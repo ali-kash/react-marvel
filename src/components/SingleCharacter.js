@@ -1,27 +1,10 @@
-import { useEffect } from 'react'
-
-import { Grid, Paper, Typography, Link } from '@mui/material'
+import { Grid, Paper, Typography } from '@mui/material'
 
 const SingleCharacter = (props) => {
-	console.log(props.info[0])
-
-	const info = props.info[0]
+	const info = JSON.parse(localStorage.getItem('singleData'))
 
 	const name = info.name
 	const imageUrl = `${info.thumbnail.path}.${info.thumbnail.extension}`
-	const series = info.series.items
-	// const airing = String(info.airing)
-	// const broadcast = info.broadcast
-	// const score = info.score
-	// const resourceURI = info.resourceURI
-
-	// const { name, thumbnail } = info
-
-	// console.log(name)
-
-	// useEffect(() => {
-	// 	console.log(name, thumbnail)
-	// }, [props.info])
 
 	return (
 		<Grid
@@ -41,14 +24,6 @@ const SingleCharacter = (props) => {
 					<Typography variant='h4' component='h2'>
 						{name}
 					</Typography>
-
-					{series.map((serie, i) => (
-						<Typography key={i} variant='h5' component='h2'>
-							<Link component='button' variant='body1' href={serie.resourceUI}>
-								{serie.name}
-							</Link>
-						</Typography>
-					))}
 				</Paper>
 			</Grid>
 		</Grid>
