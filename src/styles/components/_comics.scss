@@ -4,11 +4,32 @@
 		margin: 5rem -3rem 3rem;
 	}
 
-	&__title {
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		font-family: $comic;
-		font-size: 2rem;
-		padding: 0 2rem 1rem;
+		text-transform: uppercase;
+		margin: 0 auto 1rem;
+		max-width: 90%;
+		@include media('<=tablet') {
+			width: 100%;
+		}
+		&-title {
+			font-size: 2rem;
+		}
+		&-link {
+			color: $white;
+			text-decoration: none;
+			outline: none;
+			border-bottom: 1px solid transparent;
+			transition: 0.5s;
+			&:hover {
+				border-color: $white;
+			}
+		}
 	}
+
 	.swiper-slide {
 		width: 60%;
 		@include media('>=tablet') {

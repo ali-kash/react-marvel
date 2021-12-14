@@ -8,6 +8,7 @@ const SingleCharacter = () => {
 	const description = info.description
 	const comicsQuantity = info.comics.available
 	const wikiLink = info.urls[1].url
+	const comicsLink = info.urls[2].url
 
 	return (
 		<div className='characterItem'>
@@ -33,7 +34,9 @@ const SingleCharacter = () => {
 					</div>
 				</div>
 			</div>
-			{comicsQuantity != '0' ? <Comic charId={charId} /> : null}
+			{comicsQuantity != '0' ? (
+				<Comic charId={charId} comicsLink={comicsLink} />
+			) : null}
 		</div>
 	)
 }

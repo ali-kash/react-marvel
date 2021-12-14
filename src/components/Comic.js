@@ -6,7 +6,7 @@ import { SwiperSlide, Swiper } from 'swiper/react'
 const apiPublicKey = process.env.MARVEL_API_PUBLIC_KEY
 const apiHash = process.env.MARVEL_API_HASH
 
-const Comic = ({ charId }) => {
+const Comic = ({ charId, comicsLink }) => {
 	// console.log(charId)
 
 	const [items, setItems] = useState([])
@@ -29,7 +29,17 @@ const Comic = ({ charId }) => {
 		<Loading />
 	) : (
 		<div className='sliderContainer'>
-			<h2 className='sliderContainer__title'>Comics</h2>
+			<div className='sliderContainer__header'>
+				<h2 className='sliderContainer__header-title'>Comics</h2>
+				<a
+					href={comicsLink}
+					target='_blank'
+					className='sliderContainer__header-link'
+				>
+					View All
+				</a>
+			</div>
+
 			<Swiper
 				grabCursor={true}
 				spaceBetween={16}
