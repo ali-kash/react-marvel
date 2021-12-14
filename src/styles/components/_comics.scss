@@ -1,0 +1,38 @@
+.sliderContainer {
+	margin: 3rem -1.25rem;
+	@include media('>=desktop') {
+		margin: 5rem -3rem 3rem;
+	}
+
+	&__title {
+		font-family: $comic;
+		font-size: 2rem;
+		padding: 0 2rem 1rem;
+	}
+	.swiper-slide {
+		width: 60%;
+		@include media('>=tablet') {
+			width: 26%;
+		}
+		@include media('>=desktop') {
+			width: 17%;
+		}
+	}
+
+	.comic {
+		position: relative;
+		background-position: top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-top: 145%;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+		}
+	}
+}

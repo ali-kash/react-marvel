@@ -1,0 +1,26 @@
+.home-link {
+	font-family: $comic;
+	font-size: 1.75rem;
+	text-decoration: none;
+	color: $white;
+	position: relative;
+	padding: 5px;
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 2px;
+		transform: scaleX(0);
+		background-color: $grey;
+		transition: transform 0.3s;
+	}
+
+	&:hover {
+		&:after {
+			transform: scaleX(1);
+		}
+	}
+}

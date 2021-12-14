@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
 		borderRadius: '1rem',
 		boxShadow: 'none',
 		position: 'relative',
-		minWidth: 200,
+		width: '100%',
 		minHeight: 360,
 		backgroundSize: 'cover',
 		overflow: 'hidden',
@@ -42,6 +42,8 @@ const useStyles = makeStyles(() => ({
 		color: '#ffffff',
 		fontFamily: 'Montserrat',
 		fontSize: '1.25rem',
+		textAlign: 'left',
+		padding: '0 20px 8px',
 	},
 }))
 
@@ -73,32 +75,31 @@ const CharacterCard = (props) => {
 	return (
 		<>
 			<ImageListItem>
-				<Paper
-					className={`${styles.paper} image__gridItem`}
-					style={{
-						backgroundImage: `url(${imageUrl})`,
-					}}
+				<Link
+					component='button'
+					variant='body1'
+					style={{ marginBottom: 0, zIndex: 1 }}
+					onClick={onClickHandler}
 				>
-					<Typography
-						gutterBottom
-						variant='h6'
-						component='h2'
-						className={styles.content}
-						py={1}
-						px={2}
-						my={0}
+					<Paper
+						className={`${styles.paper} image__gridItem`}
+						style={{
+							backgroundImage: `url(${imageUrl})`,
+						}}
 					>
-						{name}
-					</Typography>
-					<Link
-						component='button'
-						variant='body1'
-						style={{ marginBottom: 0, zIndex: 1 }}
-						onClick={onClickHandler}
-					>
-						Learn More
-					</Link>
-				</Paper>
+						<Typography
+							gutterBottom
+							variant='h6'
+							component='h2'
+							className={styles.content}
+							py={1}
+							px={2}
+							my={0}
+						>
+							{name}
+						</Typography>
+					</Paper>
+				</Link>
 			</ImageListItem>
 		</>
 	)

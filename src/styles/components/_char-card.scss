@@ -1,7 +1,6 @@
 .image__gridItem {
 	display: inline-block;
-	margin-bottom: 8px;
-
+	background-color: transparent;
 	@include media('<=tablet') {
 	}
 

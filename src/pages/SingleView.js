@@ -27,11 +27,11 @@ const SingleView = () => {
 	}, [])
 
 	return (
-		<div>
+		<>
 			{(dataExists && <SingleCharacter info={search.singleData} />) || (
 				<Typography>No data exists for this Anime</Typography>
 			)}
-		</div>
+		</>
 	)
 }
 

@@ -12,7 +12,7 @@ const Home = () => {
 			alignContent='center'
 			alignItems='center'
 		>
-			<Grid item>
+			<Grid item className='home__container'>
 				<Grid item className='banner'>
 					<img src={marvelBanner} alt='marvel banner' />
 				</Grid>
