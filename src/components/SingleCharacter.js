@@ -7,8 +7,10 @@ const SingleCharacter = () => {
 	const imageUrl = `${info.thumbnail.path}.${info.thumbnail.extension}`
 	const description = info.description
 	const comicsQuantity = info.comics.available
-	const wikiLink = info.urls[1].url
-	const comicsLink = info.urls[2].url
+	const characterLinks = info.urls
+
+	// const wikiLink = info.urls[1].url
+	// const comicsLink = info.urls[2].url
 
 	return (
 		<div className='characterItem'>
@@ -23,20 +25,46 @@ const SingleCharacter = () => {
 					<h2 className='characterItem__content-title'>{name}</h2>
 					<p dangerouslySetInnerHTML={{ __html: description }} />
 					<div className='characterItem__details'>
-						<h4>
-							Number of comics available: <span>{comicsQuantity}</span>
-						</h4>
+						{comicsQuantity != '0' ? (
+							<h4>
+								Number of comics available: <span>{comicsQuantity}</span>
+							</h4>
+						) : null}
 						<div className='view-more'>
-							<a href={wikiLink} target='_blank'>
+							{characterLinks.map((link, i) => {
+								if (link.type === 'detail') {
+									return (
+										<a key={i} href={link.url} target='_blank'>
+											learn more
+										</a>
+									)
+								} else if (link.type === 'comiclink') {
+									return (
+										<a key={i + 1} href={link.url} target='_blank'>
+											view all comics
+										</a>
+									)
+								} else {
+									return null
+								}
+							})}
+
+							{/* {characterLinks.map((link, i) =>
+								link.type === 'wiki' ? (
+									<a key={i} href={link.url} target='_blank'>
+										Learn More
+									</a>
+								) : null
+							)} */}
+
+							{/* <a href={wikiLink} target='_blank'>
 								Learn More
-							</a>
+							</a> */}
 						</div>
 					</div>
 				</div>
 			</div>
-			{comicsQuantity != '0' ? (
-				<Comic charId={charId} comicsLink={comicsLink} />
-			) : null}
+			{comicsQuantity != '0' ? <Comic charId={charId} /> : null}
 		</div>
 	)
 }

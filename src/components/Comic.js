@@ -31,13 +31,13 @@ const Comic = ({ charId, comicsLink }) => {
 		<div className='sliderContainer'>
 			<div className='sliderContainer__header'>
 				<h2 className='sliderContainer__header-title'>Comics</h2>
-				<a
+				{/* <a
 					href={comicsLink}
 					target='_blank'
 					className='sliderContainer__header-link'
 				>
 					View All
-				</a>
+				</a> */}
 			</div>
 
 			<Swiper

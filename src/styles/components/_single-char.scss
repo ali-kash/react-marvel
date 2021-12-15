@@ -13,7 +13,7 @@
 		border-radius: 16px;
 		flex-direction: row;
 		padding-bottom: 24px;
-		@include media('<=phone') {
+		@include media('<=tablet') {
 			flex-direction: column;
 		}
 	}
@@ -72,10 +72,20 @@
 				color: $richBlack;
 				transition: 0.5s;
 				text-decoration: none;
+				margin-right: 1rem;
 				&:hover {
 					background-color: rgba($richBlack, 0.7);
 					border-color: $richBlack;
 					color: $white;
+				}
+			}
+			@include media('<=phone') {
+				display: flex;
+				flex-direction: column;
+				a {
+					width: 100%;
+					margin: 0 0 1rem;
+					text-align: center;
 				}
 			}
 		}

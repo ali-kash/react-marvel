@@ -5,20 +5,21 @@ import {
 	Redirect,
 	Switch,
 } from 'react-router-dom'
+import { SearchContext } from './context/search'
 
 import Home from './pages/Home'
 import Results from './pages/Results'
 import SingleView from './pages/SingleView'
 
 import Navigation from './components/Navigation'
-
-import { SearchContext } from './context/search'
+import Modal from './components/Modal'
 
 import './styles/global.scss'
 
 function App() {
 	const [charData, setCharData] = useState([])
 	const [singleData, setSingleData] = useState({})
+	const [openModal, setOpenModal] = useState(false)
 
 	const apiPublicKey = process.env.MARVEL_API_PUBLIC_KEY
 	const apiHash = process.env.MARVEL_API_HASH
@@ -53,6 +54,15 @@ function App() {
 						</Switch>
 					</main>
 				</div>
+				<div className='disclaimerBtn'>
+					<button
+						className='modalBtn openModalBtn'
+						onClick={() => setOpenModal(true)}
+					>
+						Disclaimer
+					</button>
+				</div>
+				{openModal && <Modal closeModal={setOpenModal} />}
 			</Router>
 		</SearchContext.Provider>
 	)
